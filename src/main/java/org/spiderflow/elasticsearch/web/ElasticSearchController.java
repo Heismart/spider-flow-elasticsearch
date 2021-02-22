@@ -22,8 +22,7 @@ public class ElasticSearchController extends CURDController<ElasticSearchSourceS
 
     @RequestMapping("/test")
     public JsonBean<String> test(ElasticSearchSource elasticSearchSource){
-        try{
-            RestHighLevelClient client = ElasticSearchUtils.createElasticSearchClient(elasticSearchSource);
+        try(RestHighLevelClient client = ElasticSearchUtils.createElasticSearchClient(elasticSearchSource)){
             client.ping(RequestOptions.DEFAULT);
             return new JsonBean<String>(1, "测试成功");
         } catch (Exception e) {
