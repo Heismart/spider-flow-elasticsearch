@@ -24,7 +24,7 @@ spider-flow Elasticsearch插件
 ```
 
 
-在 spider-flow/pom.xml，防止环境引用springboot自动传入的依赖，version版本要与使用的ES版本一致
+在 spider-flow/pom.xml，防止环境引用springboot自动传入的依赖，version版本要与使用的ES版本一致(或者用其他排除自动配置的方法例如在application-*.properties中配置spring.autoconfigure.exclude)
 ``` 
 <dependency>
     <groupId>org.elasticsearch</groupId>
